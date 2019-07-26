@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">
+    <name>AssetPayments VM3 payment extension</name>
+    <creationDate>July 2019</creationDate>
+    <author>AssetPayments</author>
+    <authorUrl>https://assetpayments.com</authorUrl>
+    <copyright>AssetPayments</copyright>
+    <license></license>
+    <version>3.5.0</version>
+    <description><![CDATA[<a href="https://assetpayments.com" target="_blank">AssetPayments</a> –  Online payment processing platform for webshop and mobile app. ]]></description>
+    <languages>
+	<language tag="en-GB">en-GB.plg_vmpayment_assetpayments.ini</language>
+	<language tag="ru-RU">ru-RU.plg_vmpayment_assetpayments.ini</language>
+    </languages>
+    <files>
+	<filename plugin="assetpayments">assetpayments.php</filename>
+	<filename>index.html</filename>
+	<filename>assetpayments.png</filename>
+    </files>
+    <config>
+    <fields  name="params">
+    <fieldset name="basic" addfieldpath="/administrator/components/com_virtuemart/fields">
+	<field	name="payment_logos" type="vmfiles" label="VMPAYMENT_STANDARD_LOGOS"
+		description="VMPAYMENT_STANDARD_LOGOS_DESC"
+		directory="/plugins/vmpayment/assetpayments"
+		default="assetpayments.png" hide_default="1" hide_none="1"
+		stripext="0"   exclude="php|html|xml|vm2" />
+		
+	<field type="text" name="assetpayments_merchant_id"  size="50" label="Merchant ID"
+        default="" description="" />
+
+	<field type="text" name="assetpayments_merchant_sig"  size="50" label="Secret Key"
+		default="" description="" />
+			
+	<field type="text" name="assetpayments_template_id"  size="50" label="Template ID"
+		default="19" description="" />
+	
+	<field name="status_success" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_ASSETPAYMENTS_STATUS_SUCCESS" description="VMPAYMENT_ASSETPAYMENTS_STATUS_SUCCESS_DESC" />
+	<field name="status_pending" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_ASSETPAYMENTS_STATUS_PENDING" description="VMPAYMENT_ASSETPAYMENTS_STATUS_PENDING_DESC" />
+	
+	<field name="status_ordered" type="vmorderstate" scope="com_virtuemart" default="U" label="Статус после оформления заказа" description="" />
+	<field name="countries" type="vmcountries"  scope="com_virtuemart" default="[176]" label="VMPAYMENT_STANDARD_COUNTRIES" description="VMPAYMENT_STANDARD_COUNTRIES_DESC"/>
+    <field name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_STANDARD_CURRENCY" description="VMPAYMENT_STANDARD_CURRENCY_DESC" />
+
+	</fieldset>
+    </fields>
+</config>
+<params addpath="/administrator/components/com_virtuemart/elements">
+	<param type="vmjpluginwarning" />
+	<param	name="payment_logos" type="vmfiles" label="VMPAYMENT_STANDARD_LOGOS"
+		description="VMPAYMENT_STANDARD_LOGOS_DESC"
+		directory="/plugins/vmpayment/assetpayments"
+		default="assetpayments.png" hide_default="1" hide_none="1"
+		stripext="0"   exclude=".*\.(php|html|xml|wsdl)" />
+	<param type="text" name="assetpayments_merchant_id"  size="50" label="VMPAYMENT_ASSETPAYMENTS_MERCHANT_ID"
+             default="" description="VMPAYMENT_ASSETPAYMENTS_MERCHANT_ID_DESC" />
+
+    <param type="text" name="assetpayments_merchant_sig"  size="50" label="VMPAYMENT_ASSETPAYMENTS_MERCHANT_SIG"
+		default="" description="VMPAYMENT_ASSETPAYMENTS_MERCHANT_SIG_DESC" />
+	
+	<param type="text" name="assetpayments_template_id"  size="50" label="VMPAYMENT_ASSETPAYMENTS_TEMPLATE_ID"
+		default="" description="VMPAYMENT_ASSETPAYMENTS_TEMPLATE_ID_DESC" />
+
+	<param name="status_success" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_ASSETPAYMENTS_STATUS_SUCCESS" description="VMPAYMENT_ASSETPAYMENTS_STATUS_SUCCESS_DESC" />
+	<param name="status_pending" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_ASSETPAYMENTS_STATUS_PENDING" description="VMPAYMENT_ASSETPAYMENTS_STATUS_PENDING_DESC" />
+	<param name="status_canceled" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_ASSETPAYMENTS_STATUS_CANCELED" description="VMPAYMENT_ASSETPAYMENTS_STATUS_CANCELED_DESC" />
+	<param name="countries" type="vmcountries"  scope="com_virtuemart" default="[176]" label="VMPAYMENT_STANDARD_COUNTRIES" description="VMPAYMENT_STANDARD_COUNTRIES_DESC"/>
+    <param name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_STANDARD_CURRENCY" description="VMPAYMENT_STANDARD_CURRENCY_DESC" />
+
+	</params>
+
+</extension>
